@@ -1,7 +1,8 @@
 FROM hyperledger/besu:latest
 
-# Force the container to expose Render's standard web interface port
+# Expose Render's standard web interface port gateway
 EXPOSE 10000
 
-# Tell Besu to listen directly on port 10000 so Render can route traffic to it
-ENTRYPOINT ["besu", "--rpc-http-enabled", "--rpc-http-cors-origins=*", "--rpc-http-host=0.0.0.0", "--rpc-http-port=10000"]
+# Tell Besu to allow transactions from your Convex and Vercel cloud hosts
+ENTRYPOINT ["besu", "--rpc-http-enabled", "--rpc-http-cors-origins=*", "--rpc-http-host=0.0.0.0", "--rpc-http-port=10000", "--host-allowlist=*"]
+
