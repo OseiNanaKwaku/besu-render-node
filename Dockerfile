@@ -15,7 +15,7 @@ EXPOSE 10000
 # --rpc-http-port=10000         matches the exposed port above
 # --host-allowlist=*            accepts RPC requests from any host header
 # --min-gas-price=0             enforces zero-gas transactions
-# --sync-min-peers=0            solo node, don't wait for peers to start mining
+# --discovery-enabled=false     solo node, no peers exist, so don't search for any
 # --genesis-file=...            loads the QBFT genesis config copied in above
 # --data-path=/tmp/besu-data    stores chain data in a writable, ephemeral path
-ENTRYPOINT ["besu", "--rpc-http-enabled", "--rpc-http-cors-origins=*", "--rpc-http-host=0.0.0.0", "--rpc-http-port=10000", "--host-allowlist=*", "--min-gas-price=0", "--sync-min-peers=0", "--genesis-file=/opt/besu/genesis.json", "--data-path=/tmp/besu-data"]
+ENTRYPOINT ["besu", "--rpc-http-enabled", "--rpc-http-cors-origins=*", "--rpc-http-host=0.0.0.0", "--rpc-http-port=10000", "--host-allowlist=*", "--min-gas-price=0", "--discovery-enabled=false", "--genesis-file=/opt/besu/genesis.json", "--data-path=/tmp/besu-data"]
